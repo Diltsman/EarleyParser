@@ -5,19 +5,19 @@
 #include <variant>
 #include <vector>
 
-class Rule {
-public:
-  Rule(std::string_view left);
-
-  Rule &operator>>(char const terminal);
-  Rule &operator>>(std::string_view nonterminal);
-
-private:
-  std::string_view const mLeft;
-  std::vector<std::variant<char, std::string_view>> mRight;
-};
-
 class Parser {
+  class Rule {
+  public:
+    Rule(std::string_view left);
+
+    Rule &operator>>(char const terminal);
+    Rule &operator>>(std::string_view nonterminal);
+
+  private:
+    std::string_view const mLeft;
+    std::vector<std::variant<char, std::string_view>> mRight;
+  };
+
 public:
   Rule &createRule(std::string_view left);
 
