@@ -17,4 +17,12 @@ private:
   std::vector<std::variant<char, std::string_view>> mRight;
 };
 
+class Parser {
+public:
+  Rule &createRule(std::string_view left);
+
+private:
+  std::vector<Rule> mRules;
+};
+
 #endif

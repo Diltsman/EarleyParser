@@ -11,3 +11,7 @@ Rule &Rule::operator>>(std::string_view nonterminal) {
   mRight.emplace_back(nonterminal);
   return *this;
 }
+
+Rule &Parser::createRule(std::string_view left) {
+  return mRules.emplace_back(left);
+}
