@@ -34,3 +34,4 @@
 # Visual Studio Stuff
 .vs/
 *.vcxproj.user
+x64/
