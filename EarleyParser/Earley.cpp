@@ -52,11 +52,9 @@ Parser::generateTable(std::string_view sentence) const {
   offsets.push_back(0);
   entries.push_back({std::cbegin(mRules) + mStart, 0, 0});
   for (std::string_view::size_type i = 0; i <= sentence.size(); ++i) {
-    // for (auto i = std::cbegin(sentence); i != std::cend(sentence); ++i) {
     std::optional<char> c = i == sentence.size()
                                 ? std::optional<char>{}
                                 : std::optional<char>{sentence[i]};
-    // char const c = *i;
     // Prep for the next character
     offsets.push_back(entries.size());
     auto next = std::rbegin(offsets);
